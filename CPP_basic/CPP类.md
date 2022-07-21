@@ -35,58 +35,6 @@ const Empty* operator&() const; // 取址运算符 const
 注意：当该空白类作为基类时，该类的大小就优化为0了，这就是所谓的空白基类最优化。
 注意：空白基类最优化无法被施加于多重继承上只适合单一继承。
 
-## C++与C的区别
-设计思想上：
-C++是面向对象的语言，而C是面向过程的结构化编程语言
-语法上：
-C++具有封装、继承和多态三种特性
-C++相比C，增加多许多类型安全的功能，比如强制类型转换、
-C++支持范式编程，比如模板类、函数模板等
-
-
-C语言有一些不安全的语言特性，如指针使用的潜在危险、强制转换的不确定性、内存泄露等。而C++对此增加了不少新特性来改善安全性，如const常量、引用、cast转换、智能指针、try—catch等等；
-
-C++可复用性高，C++引入了模板的概念，后面在此基础上，实现了方便开发的标准模板库STL。C++的STL库相对于C语言的函数库更灵活、更通用。
-
-## struct与class的区别
-struct 一般用于描述一个数据结构集合，而 class 是对一个对象数据的封装；
-struct 中默认的访问控制权限是 public 的，而 class 中默认的访问控制权限是 private 的，例如：
-```CPP
-struct A{  int iNum; // 默认访问控制权限是 public 
-} 
-class B{  int iNum; // 默认访问控制权限是 private 
-}
-```
-在继承关系中，struct 默认是公有继承，而 class 是私有继承；
-
-class 关键字可以用于定义模板参数，就像 typename，而 struct 不能用于定义模板参数，例如：
-```CPP
-template<typename T, typename Y> // 可以把typename 换成 class  
-int Func(const T& t, const Y& y) {      //TODO  }
-```
-
-C 中使用结构体需要加上 struct 关键字，或者对结构体使用 typedef 取别名，而 C++ 中可以省略 struct 关键字直接使用，例如：
-```CPP
-
-struct Student{  int  iAgeNum;  string strName; } 
-typedef struct Student Student2; //C中取别名  
-struct Student stu1; // C 中正常使用 
-Student2 stu2;   // C 中通过取别名的使用
-Student stu3;   // C++ 中使用
-```
-
-## 说说C++结构体和C结构体的区别
-
-区别：
-
-（1）C的结构体内不允许有函数存在，C++允许有内部成员函数，且允许该函数是虚函数。
-
-（2）C的结构体对内部成员变量的访问权限只能是public，而C++允许public,protected,private三种。
-
-（3）C语言的结构体是不可以继承的，C++的结构体是可以从其他的结构体或者类继承过来的。
-
-（4）C 中使用结构体需要加上 struct 关键字，或者对结构体使用 typedef 取别名，而 C++ 中可以省略 struct 关键字直接使
-
 ## struct内存对齐
 https://zhuanlan.zhihu.com/p/93822540
 ## 指针与引用的区别
