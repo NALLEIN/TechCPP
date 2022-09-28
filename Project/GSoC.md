@@ -95,7 +95,7 @@ inputsWrapper_[i].dynamicCast<VkComBackendWrapper>()->copyToDevice();
 - OpBase 是算子抽象类，它集中了每个算子需要用到 vulkan 对象，列如 VkPipeline，VkCommandBuffer，VkShaderModule 对象。
 - Tensor 是张量类，它使用 Buffer 类来管理设备内存。Buffer 类则封装了 VkBuffer 和CV::Mat之之间的拷贝和Map
     Buffer tensor类型  buffer asyncread && wait()
-- SPIR-V shader 生成  GLSL2先写好，然后通过工具 glslangValidator（由 Vulkan SDK 提供）转成 SPIR-V 格式，再被加载到 Vulkan 中运行。
+- SPIR-V shader 生成  GLSL先写好，然后通过工具 glslangValidator（由 Vulkan SDK 提供）转成 SPIR-V 格式，再被加载到 Vulkan 中运行。
 OpBase WGPU计算流程  算子内部只创建一次pipeline可以复用   分组卷积,防止hang
 
 ```CPP
